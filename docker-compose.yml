@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   mysql:
-    container_name: sh-membership
+    container_name: sh-user-practice
     platform: linux/x86_64
     image: mysql:8.0.23
     ports:
