@@ -33,6 +33,7 @@ dependencies {
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+	testImplementation("com.tngtech.archunit:archunit-junit5:0.23.1")
 }
 
 tasks.withType<KotlinCompile> {

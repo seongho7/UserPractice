@@ -4,7 +4,6 @@ import com.sh.user.account.domain.Account
 import com.sh.user.account.domain.AccountId
 import com.sh.user.account.domain.CustomPasswordEncoder
 import com.sh.user.common.id.IdGenerator
-import javax.validation.constraints.NotBlank
 
 data class RegisterAccountCommand(
         val email:String,

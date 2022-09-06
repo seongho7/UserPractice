@@ -1,6 +1,6 @@
 package com.sh.user.common.config
 
-import com.sh.user.account.infrastructure.TokenAuthenticationFilter
+import com.sh.user.accesstoken.infrastructure.TokenAuthenticationFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity

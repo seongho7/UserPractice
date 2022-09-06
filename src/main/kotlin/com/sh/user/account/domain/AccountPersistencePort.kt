@@ -1,6 +1,5 @@
 package com.sh.user.account.domain
 
-import com.sh.user.member.domain.Member
 import java.util.Optional
 
 interface SaveAccountPort {

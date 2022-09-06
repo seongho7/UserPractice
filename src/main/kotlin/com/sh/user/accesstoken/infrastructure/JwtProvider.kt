@@ -1,7 +1,6 @@
 package com.sh.user.accesstoken.infrastructure
 
 import com.sh.user.accesstoken.domain.register.AccessTokenProvider
-import com.sh.user.account.domain.AccountId
 import io.jsonwebtoken.JwtParser
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.impl.DefaultClaims
@@ -19,7 +18,7 @@ class JwtProvider(
 ) : AccessTokenProvider {
     private val jwtParser: JwtParser = Jwts.parserBuilder().setSigningKey(getSecretKey()).build()
 
-    override fun createToken(accountId: AccountId, tokenExpirationMsec:Long): String {
+    override fun createToken(accountId: Long, tokenExpirationMsec:Long): String {
         val now = Date()
 
         val claims = DefaultClaims()
@@ -27,7 +26,7 @@ class JwtProvider(
         claims.notBefore = now
         claims.expiration = Date(now.time + tokenExpirationMsec)
 
-        claims.subject = "${accountId.id}"
+        claims.subject = "$accountId"
 
         return Jwts.builder()
                 .setClaims(claims)
@@ -35,9 +34,9 @@ class JwtProvider(
                 .compact()
     }
 
-    override fun parseToken(token: String): AccountId {
+    override fun parseToken(token: String): Long {
         val claims = jwtParser.parseClaimsJws(token)
-        return AccountId(claims.body.subject.toLong())
+        return claims.body.subject.toLong()
     }
 
     private fun getSecretKey() : SecretKey {

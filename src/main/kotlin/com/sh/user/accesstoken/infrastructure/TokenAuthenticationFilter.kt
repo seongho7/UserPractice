@@ -1,4 +1,4 @@
-package com.sh.user.account.infrastructure
+package com.sh.user.accesstoken.infrastructure
 
 import com.sh.user.accesstoken.domain.register.AccessTokenProvider
 import com.sh.user.account.domain.AccountId
@@ -22,8 +22,8 @@ class TokenAuthenticationFilter(
 
         val jwt = getJwtFromRequest(request)
         if (jwt != null) {
-            val accountId:AccountId = tokenProvider.parseToken(jwt)
-            val authentication = UsernamePasswordAuthenticationToken(accountId, jwt, listOf(GrantedAuthority { "ROLE_MEMBER" }))
+            val accountId:Long = tokenProvider.parseToken(jwt)
+            val authentication = UsernamePasswordAuthenticationToken(AccountId(accountId), jwt, listOf(GrantedAuthority { "ROLE_MEMBER" }))
             SecurityContextHolder.getContext().authentication = authentication
         }
 

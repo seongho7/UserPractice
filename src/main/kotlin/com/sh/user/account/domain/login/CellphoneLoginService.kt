@@ -22,6 +22,6 @@ class CellphoneLoginService(
             )
         )
         val account = loadAccountPort.loadByLoginId(command.cellphone).orElseThrow{AccountNotFoundException()}
-        return registerTokenUseCase.register(RegisterTokenCommand(account.id))
+        return registerTokenUseCase.register(RegisterTokenCommand(account.id.id))
     }
 }

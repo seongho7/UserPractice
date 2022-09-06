@@ -18,6 +18,6 @@ class IdPwLoginService(
             throw LoginFailException()
         }
 
-        return registerTokenUseCase.register(RegisterTokenCommand(accountId = account.id))
+        return registerTokenUseCase.register(RegisterTokenCommand(accountId = account.id.id))
     }
 }
