@@ -25,8 +25,8 @@ class IdPwLoginApiTest : AbstractIntegrationTest() {
     @DisplayName("이메일, 비밀번호를 입력하여 로그인한다.")
     @Test
     fun login_by_email_correctly() {
-        val cellphone = "01012341234"
-        val email = "abcd@naver.com"
+        val cellphone = "01012341345"
+        val email = "abcdefg@naver.com"
         val rawPassword = "1234!abcd"
         val action = idPwLoginApiTestSupporter.getLoginAction(cellphone, email, rawPassword, email)
         action.andDo(print())

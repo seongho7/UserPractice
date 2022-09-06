@@ -25,11 +25,11 @@ class RegisterAccountService(
     }
 
     private fun verifyCellphone(command: RegisterAccountCommand) {
-        val command = VerifyTokenCommand(
+        val verifyTokenCommand = VerifyTokenCommand(
                 verificationId = command.verificationId,
                 cellphone = command.cellphone,
                 verificationToken = command.verificationToken)
-        verifyTokenUseCase.verify(command)
+        verifyTokenUseCase.verify(verifyTokenCommand)
     }
 
     private fun checkExistEmail(email:String) {
