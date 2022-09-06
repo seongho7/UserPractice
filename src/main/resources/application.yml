@@ -5,9 +5,6 @@ server:
       force: true
 
 spring:
-  sql:
-    init:
-      mode: never
   datasource:
     hikari:
       pool-name: HikariCp
@@ -23,10 +20,14 @@ spring:
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
       hibernate.dialect.storage_engine: innodb
-      hibernate.hbm2ddl.auto: none
     open-in-view: false
   properties:
     hibernate:
       format_sql: true
+app:
+  access-token:
+    secret: scYkHdNTawutmI1SmLO5l186hFmohGIWB4ECIWrjd453eWWW2a6HezjqPIfpuuD5
+    expiration-msec: 600000 #10분
+    refresh-expiration-msec: 1728000000 #14일
 logging.level:
   org.hibernate.SQL: debug

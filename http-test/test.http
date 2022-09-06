@@ -1,0 +1,63 @@
+### 휴대폰 검증 코드 발송
+POST http://localhost:8080/api/v1/cellphone-verification
+Content-Type: application/json
+
+{
+  "cellphone": "01012341234"
+}
+
+### 회원가입
+POST http://localhost:8080/api/v1/accounts
+Content-Type: application/json
+
+{
+  "email":"abcd@naver.com",
+  "cellphone": "01012341234",
+  "verificationId":1016526476234719232,
+  "verificationToken": "753351",
+  "rawPassword": "1234!abcd",
+  "name":"son",
+  "nickname": "son"
+}
+
+### 이메일, 패스워드 로그인
+POST http://localhost:8080/api/v1/accounts/login-id-pw
+Content-Type: application/json
+
+{
+  "loginId" : "abcd@naver.com",
+  "rawPassword": "1234!abcd"
+}
+
+### 휴대폰, 패스워드 로그인
+POST http://localhost:8080/api/v1/accounts/login-id-pw
+Content-Type: application/json
+
+{
+  "loginId" : "01012341234",
+  "rawPassword": "1234!abcd"
+}
+
+### 휴대폰 인증번호 로그인
+POST http://localhost:8080/api/v1/accounts/login-cellphone
+Content-Type: application/json
+
+{
+  "cellphone": "01012341234",
+  "verificationId":1016524904293466112,
+  "verificationToken": "378293"
+}
+
+### 내정보 조회
+GET http://localhost:8080/api/v1/members/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2NjI0MjkyMjksIm5iZiI6MTY2MjQyOTIyOSwiZXhwIjoxNjYyNDI5ODI5LCJzdWIiOiIxMDE2NTI2NTE4ODY5ODE5MzkyIn0.Xx4-HRbMlCGeEar3NNT1ZSarhCaTxTHqR6vvK4zbQzFKu5R1LqT_0vkq11zZ4PD7
+
+### 비밀번호 재설정
+POST http://localhost:8080/api/v1/accounts/me/password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJpYXQiOjE2NjI0Mjg4NjYsIm5iZiI6MTY2MjQyODg2NiwiZXhwIjoxNjYyNDI5NDY2LCJzdWIiOiIxMDE2MzA2NjY3NjA5OTE1MzkyIn0.EtW8_M024UNIb3W93YGz2hKnchZ5nOev68vSsr5LqTK-2TDuOvfh52l0yvcH0ByN
+
+{
+  "rawPassword": "1234!abcd"
+}
